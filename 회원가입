@@ -194,8 +194,47 @@
         <label>비자 종류 <span class="required">*</span></label>
         <select>
           <option>비자 선택</option>
-          <option>유학생</option>
-          <option>취업비자</option>
+          <option>A-1(외교)</option>
+          <option>A-2(공무)</option>
+          <option>A-3(협정)</option>
+          <option>B-1(사증면제)</option>
+          <option>B-2(관광통과)</option>
+          <option>C-1(일시취재)</option>
+          <option>C-2(단기상용)</option>
+          <option>C-3(단기종합)</option>
+          <option>C-4(단기취업)</option>
+          <option>D-1(문화예술)</option>
+          <option>D-2(유학)</option>
+          <option>D-3(산업연수)</option>
+          <option>D-4(일반연수)</option>
+          <option>D-5(취재)</option>
+          <option>D-6(종교)</option>
+          <option>D-7(주재)</option>
+          <option>D-8(기업투자)</option>
+          <option>D-9(무역경영)</option>
+          <option>D-10(구직)</option>
+          <option>E-1(교수)</option>
+          <option>E-10(선원취업)</option>
+          <option>E-2(회화지도)</option>
+          <option>E-3(연구)</option>
+          <option>E-4(기술지도)</option>
+          <option>E-5(전문직업)</option>
+          <option>E-6(예술흥행)</option>
+          <option>E-7(특정활동)</option>
+          <option>E-8(연수취업)</option>
+          <option>E-9(비전문취업)</option>
+          <option>F-1(방문동거)</option>
+          <option>F-2(거주)</option>
+          <option>F-3(동반)</option>
+          <option>F-4(재외동포)</option>
+          <option>F-5(영주)</option>
+          <option>F-6(혼인)</option>
+          <option>G-1(기타)</option>
+          <option>H-1(관광취업)</option>
+          <option>H-2(방문취업)</option>
+          <option>무비자</option>
+          <option>미확인</option>
+          <option>내국인</option>
         </select>
       </div>
 
@@ -210,6 +249,16 @@
           <input type="email" placeholder="이메일 입력">
           <span>@</span>
           <input type="text" placeholder="도메인">
+          <select id="domain-select" onchange="setDomain(this.value)">
+            <option value="">직접입력</option>
+            <option value="qq.com">qq.com</option>
+            <option value="yahoo.com">yahoo.com</option>
+            <option value="outlook.com">outlook.com</option>
+            <option value="hotmail.com">hotmail.com</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            
+          </select>
         </div>
       </div>
 
