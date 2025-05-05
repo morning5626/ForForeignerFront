@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Arial', sans-serif;
-      background-color: rgb(251 239 239);
+      background-color: rgb(251, 239, 239);
       color: #333;
       display: flex;
       flex-direction: column;
@@ -93,7 +93,7 @@
   <div class="login-container">
     <h1>로그인</h1>
     <p class="description">ForForeigner에 방문해 주셔서 감사합니다.<br>로그인하시면 보다 편리하게 서비스 이용이 가능합니다.</p>
-    <form>
+    <form id="login-form">
       <div class="form-group">
         <div class="form-row">
           <label for="id">ID</label>
@@ -110,5 +110,20 @@
       <a href="#">아이디/비밀번호 찾기</a><span>ㆍ</span><a href="#">회원가입</a>
     </div>
   </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const id = document.getElementById('id').value.trim();
+      const pw = document.getElementById('password').value.trim();
+
+      if (!id || !pw) {
+        alert('아이디와 비밀번호를 모두 입력해주세요.');
+      } else {
+        alert(`ForForeigner에 오신 것을 환영합니다! ${id}님!`);
+      }
+    });
+  </script>
 </body>
 </html>
+
