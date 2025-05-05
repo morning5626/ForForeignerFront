@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>아이디 찾기</title>
+  <style>
+    body {
+      background-color: #ffe6f0; /* 연핑크 배경 */
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #d63384;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ff69b4;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background: white;
+      border: 2px solid #ff69b4;
+      color: #d63384;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffe0ec;
+    }
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>아이디 찾기</h2>
+    <label>영문이름</label>
+    <input type="text" id="idName" placeholder="영문이름 입력">
+    <label>이메일</label>
+    <input type="email" id="idEmail" placeholder="이메일 입력">
+    <button onclick="findId()">확인</button>
+    <div id="idMsg" class="message"></div>
+  </div>
+
+  <script>
+    const users = [
+      { id: "john123", name: "John", email: "john@example.com" }
+    ];
+
+    function findId() {
+      const name = document.getElementById("idName").value.trim();
+      const email = document.getElementById("idEmail").value.trim();
+      const msg = document.getElementById("idMsg");
+
+      const user = users.find(u => u.name === name && u.email === email);
+      if (!user) {
+        msg.textContent = "등록되지 않은 이름 또는 이메일입니다.";
+        msg.className = "message error";
+      } else {
+        msg.textContent = `✅ 인증 완료! 아이디는 "${user.id}" 입니다.`;
+        msg.className = "message success";
+      }
+    }
+  </script>
+</body>
+</html>
