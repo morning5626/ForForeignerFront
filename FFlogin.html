@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>로그인</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: 'Arial', sans-serif;
       background-color: rgb(251, 239, 239);
@@ -17,46 +21,60 @@
       height: 100vh;
     }
     .login-container {
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-      padding: 20px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #F5A9A9;
+      width: 400px;
     }
     h1 {
       font-size: 24px;
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 12px;
     }
     p.description {
       font-size: 14px;
       color: #666;
-      margin-bottom: 30px;
+      text-align: center;
+      margin-bottom: 24px;
     }
     .form-group {
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
     }
     .form-row {
       display: flex;
-      border-bottom: 1px solid #ccc;
-      padding: 12px;
-    }
-    .form-row:last-child {
-      border-bottom: none;
+      align-items: center;
+      padding: 12px 14px;
+      background-color: #fff;
+      border: 1px solid #F5A9A9;
+      border-radius: 6px;
+      gap: 12px;
     }
     .form-row label {
-      width: 80px;
+      min-width: 80px;
       font-weight: bold;
       font-size: 14px;
+      color: #333;
     }
     .form-row input {
       flex: 1;
       border: none;
       outline: none;
       font-size: 14px;
+      padding: 6px 8px;
+      background-color: transparent;
       color: #333;
+          border-radius: 6px;
     }
+    .form-row input:focus {
+  background-color: #fff8fa;
+  border: 2px solid #333;
+  border-radius: 6px;
+}
+   
     .login-button {
       width: 100%;
       padding: 14px 0;
@@ -67,15 +85,17 @@
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
+      transition: all 0.3s ease;
       margin-bottom: 20px;
     }
     .login-button:hover {
-      background-color:#F5A9A9;
-      color: #fff;
+      background-color: #F5A9A9;
+      color: white;
     }
     .links {
       font-size: 13px;
       color: #666;
+      text-align: center;
     }
     .links span {
       margin: 0 8px;
@@ -120,10 +140,10 @@
       if (!id || !pw) {
         alert('아이디와 비밀번호를 모두 입력해주세요.');
       } else {
-        alert(`ForForeigner에 오신 것을 환영합니다! ${id}님!`);
+        alert(`환영합니다, ${id}님!`);
+        // 실제 로그인 처리 로직은 여기에서 서버 연동 가능
       }
     });
   </script>
 </body>
 </html>
-
