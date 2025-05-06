@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(251, 239, 239);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .login-container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p.description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .form-row {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      padding: 12px;
+    }
+    .form-row:last-child {
+      border-bottom: none;
+    }
+    .form-row label {
+      width: 80px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .form-row input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: #333;
+    }
+    .login-button {
+      width: 100%;
+      padding: 14px 0;
+      border: 1px solid #F5A9A9;
+      background-color: #fff;
+      color: #F5A9A9;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .login-button:hover {
+      background-color:#F5A9A9;
+      color: #fff;
+    }
+    .links {
+      font-size: 13px;
+      color: #666;
+    }
+    .links span {
+      margin: 0 8px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>로그인</h1>
+    <p class="description">ForForeigner에 방문해 주셔서 감사합니다.<br>로그인하시면 보다 편리하게 서비스 이용이 가능합니다.</p>
+    <form id="login-form">
+      <div class="form-group">
+        <div class="form-row">
+          <label for="id">ID</label>
+          <input type="text" id="id" placeholder="아이디를 입력해 주세요.">
+        </div>
+        <div class="form-row">
+          <label for="password">password</label>
+          <input type="password" id="password" placeholder="비밀번호를 입력해주세요">
+        </div>
+      </div>
+      <button type="submit" class="login-button">로그인</button>
+    </form>
+    <div class="links">
+      <a href="#">아이디/비밀번호 찾기</a><span>ㆍ</span><a href="#">회원가입</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const id = document.getElementById('id').value.trim();
+      const pw = document.getElementById('password').value.trim();
+
+      if (!id || !pw) {
+        alert('아이디와 비밀번호를 모두 입력해주세요.');
+      } else {
+        alert(`ForForeigner에 오신 것을 환영합니다! ${id}님!`);
+      }
+    });
+  </script>
+</body>
+</html>
+

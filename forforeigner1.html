@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForForeigner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        header { /*상단바*/
+            
+            background-color: #ffffff;
+        }
+
+        .header-container{ /*상단바*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .auth-button{
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-button .btn{
+            padding:8px 16px;
+            background-color: #e761b4;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        }
+
+        .auth-buttons .btn:hover {
+            background-color: #d14a9d;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class= "header-container">
+            <div class="logo-nav">
+            <img src="images/logo1.png" alt="ForForeigner 로고" style="height: 80px;">
+            <nav>
+                <a href="#about">About us</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#community">Community</a>
+                <a href="#mypage">My page</a>
+            </nav>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn"> 로그인</a>
+                <a href="agree.html" class="btn"> 회원가입</a>
+            </div>
+        </div>
+      </header>
+      
+    <img src="https://www.agoda.com/wp-content/uploads/2024/08/Namsan-Tower-during-autumn-in-Seoul-South-Korea-1244x700.jpg" alt="경복궁 이미지" style="display: block; width: 100%; max-height: 600px; object-fit: cover; margin: 20px 0;">
+    <img src="https://www.bulkwang.co.kr/news/photo/202110/36856_15936_1849.jpg" alt="경복궁 이미지" style="display: block; width: 100%; max-height: 600px; object-fit: cover; margin: 20px 0;">
+    <div class="container" id="about">
+        <h2>서비스 소개</h2>
+        <p>한국에 거주하는 외국인을 위한 맞춤형 생활 지원 웹 앱입니다.</p>
+    </div>
+    <div class="container" id="features">
+        <h2>핵심 기능</h2>
+        <h3>1. AI 챗봇</h3>
+        <p>한국어 회화, 병원 방문, 관공서 업무, 대중교통 이용 등의 정보를 제공하는 AI 챗봇.</p>
+        <h3>2. 퀴즈 시스템</h3>
+        <p>한국어 학습 및 문화, 법규 관련 퀴즈를 제공하여 학습을 돕습니다.</p>
+        <h3>3. 다국어 번역</h3>
+        <p>AI 번역 기능을 통해 다양한 언어로 정보를 제공합니다.</p>
+        <h3>4. 외국인 복지 정보</h3>
+        <p>구청 단위 복지 프로젝트를 홍보하고 대상자들에게 정보를 제공합니다.</p>
+    </div>
+    <div class="container" id="contact">
+        <h2>문의</h2>
+        <p>더 궁금한 점이 있다면 이메일로 문의해주세요: support@service.com</p>
+    </div>
+    <footer>
+        &copy; 2025 외국인 생활 지원 서비스
+    </footer>
+</body>
+</html>
