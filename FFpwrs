@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>비밀번호 재설정</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(251, 239, 239);
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #F5A9A9;
+    }
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+    .form-group {
+      border: 1px solid #F5A9A9;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .form-row {
+      display: flex;
+      padding: 12px;
+      border-bottom: 1px solid #F5A9A9;
+    }
+    .form-row:last-child {
+      border-bottom: none;
+    }
+    .form-row label {
+      width: 100px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .form-row input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background-color: transparent;
+    }
+    .form-row input:focus {
+      background-color: #fff8fa;
+      border-radius: 4px;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px 0;
+      border: 1px solid #F5A9A9;
+      background-color: #fff;
+      color: #F5A9A9;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .submit-btn:hover {
+      background-color: #F5A9A9;
+      color: white;
+    }
+    .info-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>비밀번호 재설정</h2>
+    <form id="reset-form">
+      <div class="form-group">
+        <div class="form-row">
+          <label for="code">인증번호</label>
+          <input type="text" id="code" placeholder="인증번호 입력">
+        </div>
+        <div class="form-row">
+          <label for="new-pw">새 비밀번호</label>
+          <input type="password" id="new-pw" placeholder="영문+숫자+특수문자 포함">
+        </div>
+        <div class="form-row">
+          <label for="confirm-pw">비밀번호 확인</label>
+          <input type="password" id="confirm-pw" placeholder="비밀번호 재입력">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">비밀번호 재설정</button>
+    </form>
+    <div class="info-text">입력한 인증번호가 일치할 경우 비밀번호가 재설정됩니다.</div>
+  </div>
+
+  <script>
+    document.getElementById('reset-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const code = document.getElementById('code').value.trim();
+      const pw = document.getElementById('new-pw').value.trim();
+      const confirm = document.getElementById('confirm-pw').value.trim();
+
+      if (!code || !pw || !confirm) {
+        alert('모든 항목을 입력해주세요.');
+      } else if (pw !== confirm) {
+        alert('비밀번호가 일치하지 않습니다.');
+      } else {
+        alert('비밀번호가 성공적으로 재설정되었습니다!');
+      }
+    });
+  </script>
+</body>
+</html>
