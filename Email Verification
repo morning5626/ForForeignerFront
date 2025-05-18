@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이메일 인증</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(251, 239, 239);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #F5A9A9;
+      width: 400px;
+    }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    p.description {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 14px;
+      background-color: #fff;
+      border: 1px solid #F5A9A9;
+      border-radius: 6px;
+      gap: 12px;
+    }
+    .form-row label {
+      min-width: 80px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+    }
+    .form-row input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 6px 8px;
+      background-color: transparent;
+      color: #333;
+      border-radius: 6px;
+    }
+    .form-row input:focus {
+      background-color: #fff8fa;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+    .login-button {
+      width: 100%;
+      padding: 14px 0;
+      border: 1px solid #F5A9A9;
+      background-color: #fff;
+      color: #F5A9A9;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .login-button:hover {
+      background-color: #F5A9A9;
+      color: white;
+    }
+    #emailVerifyMsg {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>이메일 인증</h1>
+    <p class="description">이메일 주소를 입력하고 인증번호를 확인해주세요.</p>
+
+    <div class="form-group">
+      <div class="form-row">
+        <label for="email">이메일</label>
+        <input type="email" id="email" placeholder="example@gmail.com">
+      </div>
+      <button class="login-button" onclick="sendVerificationCode()">인증번호 전송</button>
+
+      <div class="form-row">
+        <label for="emailCode">인증번호</label>
+        <input type="text" id="emailCode" placeholder="인증번호 입력">
+      </div>
+      <button class="login-button" onclick="verifyEmailCode()">인증 확인</button>
+    </div>
+    <div id="emailVerifyMsg"></div>
+  </div>
+
+  <script>
+    let sentCode = "";
+
+    function sendVerificationCode() {
+      const email = document.getElementById("email").value.trim();
+
+      if (!email || !email.includes("@")) {
+        alert("유효한 이메일 주소를 입력해주세요.");
+        return;
+      }
+
+      sentCode = "123456";
+      alert(`인증번호가 ${email}로 전송되었습니다. (테스트용 고정값: 123456)`);
+    }
+
+    function verifyEmailCode() {
+      const input = document.getElementById("emailCode").value.trim();
+      const msgDiv = document.getElementById("emailVerifyMsg");
+
+      if (input === sentCode) {
+        msgDiv.style.color = "green";
+        msgDiv.textContent = "✅ 이메일 인증이 완료되었습니다.";
+      } else {
+        msgDiv.style.color = "red";
+        msgDiv.textContent = "❌ 인증번호가 올바르지 않습니다.";
+      }
+    }
+  </script>
+</body>
+</html>
