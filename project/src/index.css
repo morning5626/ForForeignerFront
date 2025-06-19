@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 구글 번역 UI 완전 제거 */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-te-menu-frame,
+.goog-te-balloon-frame {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  border: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+/* 번역 영역 박스 자체 숨기기 */
+#google_translate_element {
+  display: none !important;
+}
