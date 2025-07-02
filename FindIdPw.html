@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아이디 / 비밀번호 찾기</title>
+  <style>
+    /* ✅ 폰트 연결 */
+    @font-face {
+      font-family: 'Paperlogy-8ExtraBold';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* ✅ 전체 배경 및 정렬 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Paperlogy-8ExtraBold', sans-serif;
+      background-color: #fbefef;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ✅ 상단 제목 및 탭 영역 */
+    .title {
+      margin-top: 40px;
+      font-size: 26px;
+      font-weight: normal;
+    }
+
+    .title span {
+      margin: 0 10px;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 5px;
+      transition: 0.2s ease;
+      font-weight: normal;
+      color: black; /* 기본 색상 */
+    }
+
+    /* ✅ 선택된 탭에 적용되는 스타일 */
+    .title span.active {
+      color: #f5a9a9; /* 진한 핑크 */
+    }
+
+    /* ✅ 박스 컨테이너 정렬 */
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 70px; /* 넉넉한 간격 */
+    }
+
+    /* ✅ 박스 디자인 */
+    .box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      width: 460px; /* ✅ 이미지 참고하여 넉넉한 너비로 조정 */
+      display: none;
+      font-weight: normal;
+    }
+
+    /* ✅ 보여지는 박스 */
+    .box.active {
+      display: block;
+    }
+
+    /* ✅ 박스 내부 타이틀 */
+    .box h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    /* ✅ 라벨 */
+    .box label {
+      display: block;
+      margin-top: 12px;
+      font-weight: normal;
+    }
+
+    /* ✅ 입력창 */
+    .box input {
+      width: 100%;
+      padding: 10px 14px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: normal;
+      box-sizing: border-box; /* ✅ padding 포함한 크기 계산 */
+    }
+
+    /* ✅ 버튼 */
+    .box button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 12px;
+      background-color: #fbefef;
+      border: 1px solid #f5a9a9;
+      color: #f5a9a9;
+      font-size: 16px;
+      font-family: inherit;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    /* ✅ 버튼 호버 시 */
+    .box button:hover {
+      background-color: #f5a9a9;
+      color: white;
+    }
+
+    /* ✅ 안내문 */
+    .box p {
+      margin-top: 15px;
+      font-size: 13px;
+      color: gray;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    /* ✅ 에러 메시지 */
+    .error {
+      color: red;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ 탭 선택 영역 -->
+  <div class="title">
+    <span id="tab-id" class="active">아이디 찾기</span> /
+    <span id="tab-pw">비밀번호 찾기</span>
+  </div>
+
+  <!-- ✅ 박스 컨테이너 -->
+  <div class="container">
+
+    <!-- ✅ 아이디 찾기 박스 -->
+    <div id="box-id" class="box active">
+      <h2>아이디 찾기</h2>
+      <label>영문이름</label>
+      <input type="text" id="name-id" placeholder="영문이름을 입력하세요" />
+      <label>이메일</label>
+      <input type="email" id="email-id" placeholder="이메일을 입력하세요" />
+      <button onclick="validate('id')">확인</button>
+      <div id="error-id" class="error"></div>
+      <p>가입시 등록한 정보로 아이디를 찾을 수 있습니다.</p>
+    </div>
+
+    <!-- ✅ 비밀번호 찾기 박스 -->
+    <div id="box-pw" class="box">
+      <h2>비밀번호 찾기</h2>
+      <label>아이디</label>
+      <input type="text" id="username-pw" placeholder="아이디를 입력하세요" />
+      <label>영문이름</label>
+      <input type="text" id="name-pw" placeholder="영문이름을 입력하세요" />
+      <label>이메일</label>
+      <input type="email" id="email-pw" placeholder="이메일을 입력하세요" />
+      <button onclick="validate('pw')">확인</button>
+      <div id="error-pw" class="error"></div>
+      <p>가입시 등록한 이메일로 임시비밀번호를 전송합니다.</p>
+    </div>
+
+  </div>
+
+  <!-- ✅ 탭 전환 및 유효성 검사 스크립트 -->
+  <script>
+    const tabId = document.getElementById('tab-id');
+    const tabPw = document.getElementById('tab-pw');
+    const boxId = document.getElementById('box-id');
+    const boxPw = document.getElementById('box-pw');
+
+    // ✅ 아이디 찾기 탭 클릭 시
+    tabId.onclick = () => {
+      tabId.classList.add('active');
+      tabPw.classList.remove('active');
+      boxId.classList.add('active');
+      boxPw.classList.remove('active');
+    };
+
+    // ✅ 비밀번호 찾기 탭 클릭 시
+    tabPw.onclick = () => {
+      tabPw.classList.add('active');
+      tabId.classList.remove('active');
+      boxPw.classList.add('active');
+      boxId.classList.remove('active');
+    };
+
+    // ✅ 입력값 유효성 검사
+    function validate(type) {
+      if (type === 'id') {
+        const name = document.getElementById('name-id').value.trim();
+        const email = document.getElementById('email-id').value.trim();
+        const errorDiv = document.getElementById('error-id');
+        if (!name || !email || !email.includes('@')) {
+          errorDiv.textContent = "등록되지 않은 이름 또는 이메일입니다. 다시 입력해주세요.";
+        } else {
+          errorDiv.textContent = "";
+          alert("아이디 찾기 처리됨 (예시)");
+        }
+      } else {
+        const username = document.getElementById('username-pw').value.trim();
+        const name = document.getElementById('name-pw').value.trim();
+        const email = document.getElementById('email-pw').value.trim();
+        const errorDiv = document.getElementById('error-pw');
+        if (!username || !name || !email || !email.includes('@')) {
+          errorDiv.textContent = "등록되지 않은 이름 또는 이메일입니다. 다시 입력해주세요.";
+        } else {
+          errorDiv.textContent = "";
+          alert("비밀번호 찾기 처리됨 (예시)");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
