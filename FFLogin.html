@@ -4,14 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>로그인</title>
+
+  <!-- Paperlogy 폰트 선언 -->
   <style>
+    @font-face {
+      font-family: 'Paperlogy-8ExtraBold';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Paperlogy-8ExtraBold', sans-serif !important;
     }
+
     body {
-      font-family: 'Arial', sans-serif;
       background-color: rgb(251, 239, 239);
       color: #333;
       display: flex;
@@ -20,6 +30,7 @@
       justify-content: center;
       height: 100vh;
     }
+
     .login-container {
       background: #fff;
       padding: 30px;
@@ -27,23 +38,27 @@
       box-shadow: 0 0 10px #F5A9A9;
       width: 400px;
     }
+
     h1 {
       font-size: 24px;
       text-align: center;
       margin-bottom: 12px;
     }
+
     p.description {
       font-size: 14px;
       color: #666;
       text-align: center;
       margin-bottom: 24px;
     }
+
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin-bottom: 24px;
     }
+
     .form-row {
       display: flex;
       align-items: center;
@@ -53,12 +68,14 @@
       border-radius: 6px;
       gap: 12px;
     }
+
     .form-row label {
       min-width: 80px;
       font-weight: bold;
       font-size: 14px;
       color: #333;
     }
+
     .form-row input {
       flex: 1;
       border: none;
@@ -67,14 +84,16 @@
       padding: 6px 8px;
       background-color: transparent;
       color: #333;
-          border-radius: 6px;
+      border-radius: 6px;
+      font-family: 'Paperlogy-8ExtraBold', sans-serif !important;
     }
+
     .form-row input:focus {
-  background-color: #fff8fa;
-  border: 2px solid #333;
-  border-radius: 6px;
-}
-   
+      background-color: #fff8fa;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+
     .login-button {
       width: 100%;
       padding: 14px 0;
@@ -87,23 +106,30 @@
       cursor: pointer;
       transition: all 0.3s ease;
       margin-bottom: 20px;
+      font-family: 'Paperlogy-8ExtraBold', sans-serif !important;
     }
+
     .login-button:hover {
       background-color: #F5A9A9;
       color: white;
     }
+
     .links {
       font-size: 13px;
       color: #666;
       text-align: center;
     }
+
     .links span {
       margin: 0 8px;
     }
+
     a {
       color: inherit;
       text-decoration: none;
+      font-family: 'Paperlogy-8ExtraBold', sans-serif !important;
     }
+
     a:hover {
       text-decoration: underline;
     }
@@ -141,9 +167,9 @@
         alert('아이디와 비밀번호를 모두 입력해주세요.');
       } else {
         alert(`환영합니다, ${id}님!`);
-        // 실제 로그인 처리 로직은 여기에서 서버 연동 가능
       }
     });
   </script>
 </body>
 </html>
+
